@@ -1,0 +1,6 @@
+RewriteEngine On
+
+DirectoryIndex index.php index.html index.htm index2.html
+
+# To hide errors in php doc
+php_flag display_errors Off

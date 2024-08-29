@@ -1,0 +1,30 @@
+RewriteEngine On
+
+# Custom error pages
+ErrorDocument 404 /404.php
+
+# Exclude specific files from rewriting
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteCond %{REQUEST_URI} !^/sbp-contents/template\.php$
+
+# Rewrite URLs like /category/some_category_name to category.php
+RewriteRule ^category/([^/]+)/?$ category.php?category=$1 [L,QSA]
+
+# Rewrite URLs like /author/author_name to author.php
+RewriteRule ^author/([^/]+)/?$ author.php?author=$1 [L,QSA]
+
+# Handle URLs for sbp-contents/template.php
+RewriteRule ^([^/]+)/([a-zA-Z0-9_-]+)/?$ sbp-contents/template.php?category=$1&slug=$2 [QSA,L]
+
+# Handle URLs for sbp-contents/template-page.php
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ sbp-contents/template-page.php?slug=$1 [QSA,L]
+
+# Redirect .php URLs to pretty permalinks
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/index\.php$
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# To hide errors in php doc
+php_flag display_errors Off
+
