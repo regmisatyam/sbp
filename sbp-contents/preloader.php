@@ -3,7 +3,7 @@
         <div class="preloader-inner position-relative">
             <div class="preloader-circle"></div>
             <div class="preloader-img pere-text">
-                <img src="/assets/img/logo/sb-logo.png" alt="">
+                <img src="<?php echo $website ?>/assets/img/logo/sb-logo.png" alt="sbp preloader">
             </div>
         </div>
     </div>

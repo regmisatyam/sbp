@@ -2,7 +2,7 @@
 // MySQL database connection
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $database = "sbp";
 
 // Create connection

@@ -4,7 +4,7 @@
 global $website, $fbLink, $igLink, $xLink, $ldLink, $gitLink, $doc_root;
 
 // Website Link
-$website = 'http://localhost/htdocs'; 
+$website = 'http://localhost:8888/sbp'; 
 $imgUploads = $website . '/assets/uploads'; 
 
 //>>(Author/Website) Social Links<<
@@ -16,6 +16,5 @@ $gitLink = 'https://github.com/regmisatyam';
 
 $doc_root = $_SERVER['DOCUMENT_ROOT'];
 
-// define('ROOT', ' C:\xampp\htdocs\htdocs');
 
 ?>

@@ -23,7 +23,7 @@
 <body>
 
     <!-- Preloader Start -->
-    <?php include_once __DIR__ . '/sbp-contents/preloader.php'; ?>
+    <?php //include_once __DIR__ . '/sbp-contents/preloader.php'; ?>
     <!-- Preloader Start -->
 
     <header>

@@ -46,11 +46,12 @@ if (isset($_GET['slug'])) {
         } else {
             $timeAgo = '30s ago';
         }
-?>
+        ?>
 
         <!doctype html>
         <html class="no-js" lang="zxx">
-<?php include 'globalVar.php'; ?>
+        <?php include 'globalVar.php'; ?>
+
         <head>
             <meta charset="utf-8">
             <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -125,10 +126,14 @@ if (isset($_GET['slug'])) {
                                         <div class="section-tittle">
                                             <h3 class="mr-20">Share:</h3>
                                             <ul>
-                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-ins.png" alt=""></a></li>
-                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-fb.png" alt=""></a></li>
-                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-tw.png" alt=""></a></li>
-                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-yo.png" alt=""></a></li>
+                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-ins.png"
+                                                            alt=""></a></li>
+                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-fb.png"
+                                                            alt=""></a></li>
+                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-tw.png"
+                                                            alt=""></a></li>
+                                                <li><a href="#"><img src="<?php echo $website; ?>/assets/img/news/icon-yo.png"
+                                                            alt=""></a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -138,32 +143,46 @@ if (isset($_GET['slug'])) {
 
                                 <div class="row">
                                     <div class="col-lg-8">
-                                        <form class="form-contact contact_form mb-80" action="" method="post" id="contactForm" novalidate="novalidate">
+                                        <form class="form-contact contact_form mb-80" action="" method="post" id="contactForm"
+                                            novalidate="novalidate">
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <textarea class="form-control w-100 error" name="comment" id="comment" cols="30" rows="6" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Comments'" placeholder="Comments"></textarea>
+                                                        <textarea class="form-control w-100 error" name="comment" id="comment"
+                                                            cols="30" rows="6" onfocus="this.placeholder = ''"
+                                                            onblur="this.placeholder = 'Enter Comments'"
+                                                            placeholder="Comments"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <input class="form-control error" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
+                                                        <input class="form-control error" name="name" id="name" type="text"
+                                                            onfocus="this.placeholder = ''"
+                                                            onblur="this.placeholder = 'Enter your name'"
+                                                            placeholder="Enter your name">
                                                     </div>
                                                 </div>
                                                 <div class="col-sm-6">
                                                     <div class="form-group">
-                                                        <input class="form-control error" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
+                                                        <input class="form-control error" name="email" id="email" type="email"
+                                                            onfocus="this.placeholder = ''"
+                                                            onblur="this.placeholder = 'Enter email address'"
+                                                            placeholder="Email">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <input class="form-control error" name="website" id="website" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Website'" placeholder="Enter Website">
+                                                        <input class="form-control error" name="website" id="website"
+                                                            type="text" onfocus="this.placeholder = ''"
+                                                            onblur="this.placeholder = 'Enter Website'"
+                                                            placeholder="Enter Website">
                                                     </div>
                                                 </div>
                                                 <span>*Your email will not be published!</span>
                                             </div>
                                             <div class="form-group mt-3">
-                                                <button type="submit" class="button button-contactForm boxed-btn">Post Comment</button>
+                                                <button type="submit" class="button button-contactForm boxed-btn">Post
+                                                    Comment</button>
                                             </div>
                                         </form>
                                     </div>
@@ -182,7 +201,7 @@ if (isset($_GET['slug'])) {
                                     $email = htmlspecialchars(trim($_POST["email"]));
                                     $website = htmlspecialchars(trim($_POST["website"]));
                                     $comment = htmlspecialchars(trim($_POST["comment"]));
-                                    $post_slug =  $_GET['slug'];
+                                    $post_slug = $_GET['slug'];
                                     // Get IP address of the device
                                     $ip_address = $_SERVER['REMOTE_ADDR'];
                                     // Prepare and bind SQL statement
@@ -191,9 +210,9 @@ if (isset($_GET['slug'])) {
 
                                     // Execute the statement
                                     if ($stmt->execute() === TRUE) {
-                                      
-                                       header("Refresh:0");
-              exit;
+
+                                        header("Refresh:0");
+                                        exit;
 
                                     } else {
                                         echo "Error: " . $stmt->error;
@@ -222,7 +241,7 @@ if (isset($_GET['slug'])) {
 
         </html>
 
-<?php
+        <?php
     } else {
         // If Blogs is not found redirect to error 404 
         header("HTTP/1.0 404 Not Found");
