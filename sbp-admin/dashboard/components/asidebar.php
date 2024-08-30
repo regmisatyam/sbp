@@ -71,6 +71,11 @@
           <i class="bi bi-circle"></i><span>Contacts</span>
         </a>
       </li>
+      <li>
+        <a href="users.php">
+          <i class="bi bi-circle"></i><span>Users</span>
+        </a>
+      </li>
     </ul>
   </li><!-- End Tables Nav -->
 

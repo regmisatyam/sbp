@@ -1,4 +1,6 @@
 <?php
+ error_reporting(E_ALL);
+ ini_set('display_errors', 1);
 $showAlert = false;
 $showError = false;
 $register = false;
@@ -20,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($numExistsRow > 0) {
         $showError = "Username or Email already exists";
     } else {
+      include '../../sbp-contents/globalVar.php';
         if ($password === $cpassword) {
             // Hash the password
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -31,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if ($result) {
                 $register = "Registration Successful! Go to Login";
                 $showAlert = true;
-                header("location: /sbp-admin/dashboard/");
+                header("location: $website/sbp-admin/dashboard/");
             } else {
                 $showError = "Error during registration. Please try again.";
             }
@@ -54,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- Css Files -->
   <?php include './components/importCss.php';?>
+  <?php include '../../sbp-contents/globalVar.php';?>
 
 </head>
 
@@ -67,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="" class="logo d-flex align-items-center w-auto">
-                  <img src="https://blog.satyamregmi.com.np/assets/img/favicon.ico" alt="">
+                <a href="<?php echo $website ?>" class="logo d-flex align-items-center w-auto">
+                  <img src="<?php echo $website ?>/assets/img/favicon.ico" alt="">
                   <span class="d-none d-lg-block">Satyam Blogs</span>
                 </a>
               </div><!-- End Logo -->
@@ -128,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="#">terms and conditions</a></label>
+                        <label class="form-check-label" for="acceptTerms">I agree and accept the <a href="<?php echo $website ?>/privacy-policy/">terms and conditions</a></label>
                         <div class="invalid-feedback">You must agree before submitting.</div>
                       </div>
                     </div>

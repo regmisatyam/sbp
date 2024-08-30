@@ -59,9 +59,10 @@ $role = $_SESSION['role'];
             $page_contents = $_POST['page_contents'];
             $slug = $_POST['slug'];
             $date = $_POST['date'];
+            $displayInNav = $_POST['displayInNav'];
 
             // Update page fields in the database using prepared statements
-            $update_sql = "UPDATE sbp_pages SET page_title=?, page_contents=?, slug=?, date=? WHERE id=?";
+            $update_sql = "UPDATE sbp_pages SET page_title=?, page_contents=?, slug=?, date=?, displayInNav=? WHERE id=?";
             $stmt = $conn->prepare($update_sql);
             
             // Check if prepare() returned false
@@ -70,7 +71,7 @@ $role = $_SESSION['role'];
             }
 
             // Bind parameters for the SQL statement
-            $stmt->bind_param("ssssi", $page_title, $page_contents, $slug, $date, $id);
+            $stmt->bind_param("sssssi", $page_title, $page_contents, $slug, $date, $displayInNav, $id);
 
             // Execute the prepared statement
             if ($stmt->execute()) {
@@ -88,7 +89,7 @@ $role = $_SESSION['role'];
             $id = $_GET['id'];
 
             // Query to retrieve page details based on ID
-            $sql = "SELECT page_title, page_contents, slug, author, date FROM sbp_pages WHERE id=?";
+            $sql = "SELECT page_title, page_contents, slug, author, date, displayInNav FROM sbp_pages WHERE id=?";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("i", $id);
             $stmt->execute();
@@ -104,6 +105,8 @@ $role = $_SESSION['role'];
                     echo '<input type="hidden" name="id" value="' . htmlspecialchars($id) . '">';
                     echo '<label for="title">Title:</label><br>';
                     echo '<input type="text" class="form-control" name="page_title" value="' . htmlspecialchars($row["page_title"]) . '"><br>';
+                    echo '<label for="displayInNav">Display in nav:</label><br>';
+                    echo '<input type="text" class="form-control" name="displayInNav" value="' . htmlspecialchars($row["displayInNav"]) . '"><br>';
                     echo '<label for="contents">Contents:</label><br>';
                     echo '<textarea name="page_contents" class="tinymce-editor" id="editor" rows="20" cols="50">' . htmlspecialchars($row["page_contents"]) . '</textarea><br>';
                     echo '<label for="slug">Slug:</label><br>';

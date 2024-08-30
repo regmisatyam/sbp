@@ -30,11 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Insert new user into the database
             $sql = "INSERT INTO `sbp_users` (`firstName`, `lastName`, `username`, `email`, `password`, `role`, `date`) VALUES ('$firstName', '$lastName', '$username', '$email', '$hashedPassword', '$role', current_timestamp())";
             $result = mysqli_query($conn, $sql);
-
+            include '../../sbp-contents/globalVar.php';
             if ($result) {
                 $register = "Registration Successful! Go to Login";
                 $showAlert = true;
-                header("location: /sbp-admin/dashboard/");
+                header("location: $website/sbp-admin/dashboard/");
             } else {
                 $showError = "Error during registration. Please try again.";
             }
@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   <!-- Css Files -->
   <?php include '../../sbp-admin/dashboard/components/importCss.php';?>
+  <?php include '../../sbp-contents/globalVar.php';?>
 
 </head>
 
@@ -70,8 +71,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
 
               <div class="d-flex justify-content-center py-4">
-                <a href="/" class="logo d-flex align-items-center w-auto">
-                  <img src="https://blog.satyamregmi.com.np/assets/img/favicon.ico" alt="">
+                <a href="<?php echo $website ?>/" class="logo d-flex align-items-center w-auto">
+                  <img src="<?php echo $website ?>/assets/img/favicon.ico" alt="Satyam Blogs Logo">
                   <span class="d-none d-lg-block">Satyam Blogs</span>
                 </a>
               </div><!-- End Logo -->
@@ -138,7 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       <button class="btn btn-primary w-100" type="submit">Create Account</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Already have an account? <a href="/sbp-admin/dashboard/">Log in</a></p>
+                      <p class="small mb-0">Already have an account? <a href="<?php echo $website ?>/sbp-admin/dashboard/">Log in</a></p>
                     </div>
                   </form>
 

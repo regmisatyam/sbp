@@ -6,6 +6,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 }
 
 include '../credentials.php';
+include '../../sbp-contents/globalVar.php';
 $username = $_SESSION['username'];
 
 // Retrieve user data from the database
@@ -33,8 +34,8 @@ $conn->close();
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-    <a href="/" class="logo d-flex align-items-center">
-        <img src="https://blog.satyamregmi.com.np/assets/img/favicon.ico" alt="">
+    <a href="<?php echo $website?>" class="logo d-flex align-items-center">
+        <img src="<?php echo $website?>/assets/img/favicon.ico" alt="">
         <span class="d-none d-lg-block">SatymBlogs</span>
     </a>
     <i class="bi bi-list toggle-sidebar-btn"></i>
@@ -200,7 +201,7 @@ $conn->close();
     <li class="nav-item dropdown pe-3">
 
       <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-        <img src="<?php echo $user_image; ?>" alt="Profile" class="rounded-circle">
+        <img src="<?php echo $user_image; ?>" alt="Profile" class="rounded-circle small-profile-img">
         <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo htmlspecialchars($firstName); ?></span>
       </a><!-- End Profile Iamge Icon -->
 

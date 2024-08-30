@@ -7,6 +7,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] != true) {
 }
 
 $author = $_SESSION['username'];
+$role = $_SESSION['role'];
 
 include '../credentials.php';
 include '../../sbp-contents/globalVar.php';
@@ -81,9 +82,10 @@ $user_image = !empty($user['image']) ? 'assets/img/usr/' . htmlspecialchars($use
 
           <div class="card">
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
-              <img src="<?php echo $user_image; ?>" alt="Profile" class="rounded-circle">
-              <h2><?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?></h2>
+              <img src="<?php echo $user_image; ?>" alt="Profile" class="rounded-circle medium-profile-image">
+              <h2 class="text-uppercase"><?php echo htmlspecialchars($user['firstName'] . ' ' . $user['lastName']); ?></h2>
               <h3><?php echo htmlspecialchars($user['job_title']); ?></h3>
+              <i class="text-capitalize">-<?php echo $role ?></i>
               <div class="social-links mt-2">
                 <a href="https://x.com/<?php echo htmlspecialchars($user['x']); ?>" class="twitter" target="_blank"><i class="bi bi-twitter"></i></a>
                 <a href="https://facebook.com/<?php echo htmlspecialchars($user['facebook']); ?>" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
@@ -188,7 +190,7 @@ $user_image = !empty($user['image']) ? 'assets/img/usr/' . htmlspecialchars($use
                       <div class="col-md-8 col-lg-9">
                         <img src="<?php echo $user_image; ?>" alt="Profile">
                         <div class="pt-2">
-                          <input type="file" name="image" class="form-control">
+                          <input type="file" name="image" class="form-control" accept="image/*">
                         </div>
                       </div>
                     </div>
