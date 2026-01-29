@@ -2,10 +2,6 @@
 
 A lightweight, self-hosted blogging platform similar to WordPress, built with PHP and MySQL. Clone, configure, and deploy your own blogging website in minutes.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![PHP](https://img.shields.io/badge/PHP-7.4%2B-blue)
-![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-blue)
-
 ## Table of Contents
 
 - [Features](#features)
